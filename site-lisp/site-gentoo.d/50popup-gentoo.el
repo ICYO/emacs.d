@@ -1,0 +1,5 @@
+
+;;; popup site-lisp configuration
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/popup")
+(load "popup-autoloads" nil t)

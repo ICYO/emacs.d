@@ -1,0 +1,14 @@
+
+;;; emacs-25 site-lisp configuration
+
+(when (string-match "\\`25\\.1\\>" emacs-version)
+  (let ((path (getenv "INFOPATH"))
+	(dir "/usr/share/info/emacs-25")
+	(re "\\`/usr/share/info\\>"))
+    (and path
+	 ;; move Emacs Info dir before anything else in /usr/share/info
+	 (let* ((p (cons nil (split-string path ":" t))) (q p))
+	   (while (and (cdr q) (not (string-match re (cadr q))))
+	     (setq q (cdr q)))
+	   (setcdr q (cons dir (delete dir (cdr q))))
+	   (setq Info-directory-list (prune-directory-list (cdr p)))))))

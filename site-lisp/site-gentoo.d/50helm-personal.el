@@ -1,0 +1,5 @@
+(add-to-list 'load-path "/usr/share/emacs/plugins/async")
+(add-to-list 'load-path "/usr/share/emacs/plugins/helm")
+(require 'helm-config)
+;(require 'helm)
+;(helm-mode 1)
